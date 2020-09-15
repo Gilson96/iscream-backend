@@ -5,6 +5,7 @@ namespace App\Http\Controllers\API;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Van;
+use App\Icecream;
 use App\Http\Requests\API\VanRequest;
 use App\Http\Resources\API\VanResource;
 use App\Http\Resources\API\VanCardResource;
@@ -32,8 +33,8 @@ class Vans extends Controller
     {
         
         $data = $request->all();
-
-        $van = Van::create($data);
+        
+        $van = Van::create($data)->setIcecreams($request->get("icecreams"));
 
          return new VanResource($van);
     }
@@ -64,6 +65,8 @@ class Vans extends Controller
         // then save it to the database
         $van->fill($data)->save();
 
+       $van->setIcecreams($request->get("icecreams"));
+       
          return new VanResource($van);
     }
 

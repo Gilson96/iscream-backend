@@ -20,7 +20,8 @@ class VanResource extends JsonResource
             "location" => [$this->lat, $this->lon],
             "priciness" => $this->priciness,
             "rating" => $this->rating,  
-            "imgUrl" => $this->imgUrl,   
+            "imgUrl" => $this->imgUrl, 
+            "icecreams" => $this->icecreams->pluck("name"),  
             
         ];
     }

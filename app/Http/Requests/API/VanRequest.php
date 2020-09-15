@@ -26,11 +26,13 @@ class VanRequest extends FormRequest
         return [
             "name" => ["required", "string"], 
             "bio" => ["required", "string"], 
-             //"lat" => ["required", "float"], 
-            // "lon" => ["required", "float"],
+            "lat" => ["required", "string"], 
+            "lon" => ["required", "string"],
             "priciness" => ["required", "int", "min:1", "max:3"],
             "rating" => ["required", "int", "min:1", "max:5"],
-            "imgUrl" => ["required", "string"]
+            "imgUrl" => ["required", "string"],
+            "icecreams" => ["required", "array"], /
+            "icecreams.*" => ["string", "max:30"] 
         ];
     }
 }

@@ -15,7 +15,15 @@ class CreateIcecreamsTable extends Migration
     {
         Schema::create('icecreams', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->string("name", 30);
+        });
+
+        // pivot table
+        Schema::create('icecreams_vans', function (Blueprint $table){
+            $table->id();
+
+            $table->foreignId("van_id")->unsigned();
+            $table->foreign("van_id")->references("id")->on("vans")->onDelete("cascade");
         });
     }
 
