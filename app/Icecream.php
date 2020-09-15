@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Collection;
+
 
 class Icecream extends Model
 {
@@ -10,9 +12,9 @@ class Icecream extends Model
 
     protected $fillable = ["name"];
 
-    static public function fromString(string $string) : Collection
+    static public function fromString(string $string) : Icecream
     {
-        $icecream = Tag::where("name", $string)->first();
+        $icecream = Icecream::where("name", $string)->first();
         return $icecream ? $icecream : Icecream::create(["name" => $string]);
     }
 

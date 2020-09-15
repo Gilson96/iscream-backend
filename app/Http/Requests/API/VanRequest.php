@@ -31,7 +31,7 @@ class VanRequest extends FormRequest
             "priciness" => ["required", "int", "min:1", "max:3"],
             "rating" => ["required", "int", "min:1", "max:5"],
             "imgUrl" => ["required", "string"],
-            "icecreams" => ["required", "array"], /
+            "icecreams" => ["required", "array"],
             "icecreams.*" => ["string", "max:30"] 
         ];
     }
