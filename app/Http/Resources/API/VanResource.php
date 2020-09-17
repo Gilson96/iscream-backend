@@ -15,6 +15,7 @@ class VanResource extends JsonResource
     public function toArray($request)
     {
         return [
+            "id" => $this->id,
             "name" => $this->name,
             "bio" => $this->bio,
             "location" => [$this->lat, $this->lon],
